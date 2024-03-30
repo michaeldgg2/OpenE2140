@@ -48,6 +48,11 @@ ucs_vehicles_miner_bt:
 	Rearmable:
 		RearmActors:
 		AmmoPools: Mines
+	WallBuilder:
+		Wall: shared_buildings_wall
+		PreBuildDelay: 10
+		AmmoPoolName: Walls
+		Voice: Unload
 	DetectCloaked:
 		Range: 2c896
 		DetectionTypes: LandMine
