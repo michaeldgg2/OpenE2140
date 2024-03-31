@@ -635,7 +635,7 @@ Container@PLAYER_WIDGETS:
 		# Temporary panel, until the unit panel is implemented
 		Container@CUSTOM_COMMANDS:
 			Logic: CustomCommandsLogic
-			X: WINDOW_RIGHT - WIDTH - 300
+			X: WINDOW_RIGHT - WIDTH - 450
 			Y: WINDOW_BOTTOM - HEIGHT - 7
 			Width: 136
 			Height: 26
@@ -654,10 +654,10 @@ Container@PLAYER_WIDGETS:
 					TooltipContainer: TOOLTIP_CONTAINER
 					Children:
 						Image@ICON:
-							X: 5
+							X: 4
 							Y: 1
 							ImageCollection: command-icons
-							ImageName: guard
+							ImageName: wall
 		Container@HPF_ROOT:
 			Logic: LoadIngameHierarchicalPathFinderOverlayLogic
 			X: WINDOW_RIGHT - WIDTH - 260
