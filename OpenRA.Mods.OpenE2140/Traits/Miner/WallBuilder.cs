@@ -12,6 +12,10 @@ public class WallBuilderInfo : ConditionalTraitInfo, Requires<MobileInfo>
 	[FieldLoader.Require]
 	public readonly string Wall = "";
 
+	[GrantedConditionReference]
+	[Desc("Condition to grant, when the wall's construction should begin.")]
+	public readonly string? WallConstructionCondition;
+
 	[VoiceReference]
 	[Desc("Voice to use when ordered build a wall.")]
 	public readonly string Voice = "Action";
@@ -60,6 +64,7 @@ public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITi
 	public const string BuildWallLineOrderID = "BuildWallLine";
 
 	private CPos? newWallLocation;
+	private Actor? newWallActor;
 
 	public WallBuilder(WallBuilderInfo info)
 		: base(info)
@@ -142,23 +147,35 @@ public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITi
 
 	void ITick.Tick(Actor self)
 	{
-		if (this.newWallLocation != null && self.Location != this.newWallLocation)
+		if (this.newWallLocation != null && this.newWallLocation.Value != self.Location)
 		{
 			self.World.AddFrameEndTask(w =>
 			{
-				if (!self.World.ActorMap.GetActorsAt(this.newWallLocation.Value).All(a => a == self)) return;
+				if (!self.World.ActorMap.GetActorsAt(this.newWallLocation.Value).All(a => a == self))
+				{
+					this.newWallLocation = null;
+					return;
+				}
 
-				var wall = w.CreateActor(this.Info.Wall, new TypeDictionary
+				this.newWallActor = w.CreateActor(this.Info.Wall, new TypeDictionary
 				{
 					new LocationInit(this.newWallLocation.Value),
 					new OwnerInit(self.Owner)
 				});
 
-				this.newWallLocation = null;
-
 				foreach (var t in self.TraitsImplementing<INotifyWallBuilding>())
-					t.WallCreated(self, wall);
+					t.WallCreated(self, this.newWallActor);
+
+				this.newWallLocation = null;
 			});
+		}
+
+		if (this.newWallActor != null && this.newWallActor.Location != self.World.Map.CellContaining(self.CenterPosition))
+		{
+			if (this.Info.WallConstructionCondition != null)
+				this.newWallActor.GrantCondition(this.Info.WallConstructionCondition);
+
+			this.newWallActor = null;
 		}
 	}
 
@@ -179,8 +196,5 @@ public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITi
 
 	void INotifyWallBuilding.WallCreated(Actor self, Actor wall) { }
 
-	void INotifyWallBuilding.WallBuildingCanceled(Actor self, CPos location)
-	{
-		this.newWallLocation = null;
-	}
+	void INotifyWallBuilding.WallBuildingCanceled(Actor self, CPos location) { }
 }

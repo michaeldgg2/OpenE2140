@@ -68,6 +68,7 @@ ucs_vehicles_miner_bt:
 		PreBuildDelay: 10
 		AmmoPoolName: Walls
 		Voice: Unload
+		WallConstructionCondition: WallConstruction
 	WithAmmoPipsDecoration@Walls:
 		AmmoPools: Walls
 		FullSequence: pip-red
