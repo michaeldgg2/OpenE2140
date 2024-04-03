@@ -41,17 +41,17 @@ public class WallBuilderInfo : ConditionalTraitInfo, Requires<MobileInfo>
 
 	public override object Create(ActorInitializer init)
 	{
-		return new WallBuilder(init.Self, this);
+		return new WallBuilder(this);
 	}
 }
 
-public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITick, IOrderVoice
+public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITick, IOrderVoice, INotifyWallBuilding
 {
 	public const string BuildWallOrderID = "BuildWall";
 
 	private CPos? newWallLocation;
 
-	public WallBuilder(Actor self, WallBuilderInfo info)
+	public WallBuilder(WallBuilderInfo info)
 		: base(info)
 	{
 	}
@@ -78,11 +78,6 @@ public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITi
 
 		var terrainType = self.World.Map.GetTerrainInfo(cell).Type;
 		return this.Info.TerrainTypes.Contains(terrainType);
-	}
-
-	public void OnWallBuilt(Actor self, CPos wallLocation)
-	{
-		this.newWallLocation = wallLocation;
 	}
 
 	void ITick.Tick(Actor self)
@@ -113,5 +108,19 @@ public class WallBuilder : ConditionalTrait<WallBuilderInfo>, IResolveOrder, ITi
 			return this.Info.Voice;
 
 		return null;
+	}
+
+	void INotifyWallBuilding.WallBuilding(Actor self, CPos location) { }
+
+	void INotifyWallBuilding.WallBuildingCompleted(Actor self, CPos location)
+	{
+		this.newWallLocation = location;
+	}
+
+	void INotifyWallBuilding.WallCreated(Actor self, Actor wall) { }
+
+	void INotifyWallBuilding.WallBuildingCanceled(Actor self, CPos location)
+	{
+		this.newWallLocation = null;
 	}
 }

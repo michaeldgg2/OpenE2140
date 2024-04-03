@@ -32,7 +32,7 @@ public class BuildWall : Activity
 		{
 			if (this.state == BuildState.Building)
 				foreach (var t in self.TraitsImplementing<INotifyWallBuilding>())
-					t.WallBuildingCanceled(self, self.Location);
+					t.WallBuildingCanceled(self, this.targetLocation);
 
 			return true;
 		}
@@ -65,6 +65,11 @@ public class BuildWall : Activity
 					return false;
 				}
 
+				if (self.World.ActorMap.AnyActorsAt(this.targetLocation, SubCell.FullCell, a => a != self))
+				{
+					return true;
+				}
+
 				// If the wall builder uses any ammo pool, check if there's enough ammo to build a wall.
 				if (this.ammoPools != null)
 				{
@@ -80,7 +85,7 @@ public class BuildWall : Activity
 				this.QueueChild(new Wait(this.wallBuilder.Info.PreBuildDelay));
 
 				foreach (var t in self.TraitsImplementing<INotifyWallBuilding>())
-					t.WallBuilding(self, self.Location);
+					t.WallBuilding(self, this.targetLocation);
 
 				break;
 			}
@@ -103,11 +108,10 @@ public class BuildWall : Activity
 						return false;
 				}
 
-				foreach (var t in self.TraitsImplementing<INotifyWallBuilding>())
-					t.WallBuildingCompleted(self, self.Location);
-
 				// Currently, the wall is build by the trait *after* the wall builder leaves target cell.
-				this.wallBuilder.OnWallBuilt(self, this.targetLocation);
+				foreach (var t in self.TraitsImplementing<INotifyWallBuilding>())
+					t.WallBuildingCompleted(self, this.targetLocation);
+
 				return true;
 			}
 			default:
