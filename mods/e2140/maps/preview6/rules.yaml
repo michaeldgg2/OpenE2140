@@ -1,0 +1,79 @@
+Player:
+	PlayerResources:
+		DefaultCash: 99999
+	-ConquestVictoryConditions:
+
+World:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	ResearchLimit:
+        Limit: 4
+
+^StrongInfantry:
+	Health:
+		HP: 120
+
+
+ucs_infantry_silver_one:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_r:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_max:
+	Inherits@99: ^StrongInfantry
+
+ed_infantry_a03:
+	Inherits@99: ^StrongInfantry
+
+^QuickConstruction:
+	TransformSequence:
+		ConstructionTime: 50
+
+ucs_buildings_prod_center:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_heavy_tech:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_robot_factory:
+	Inherits@1: ^QuickConstruction
+ed_buildings_bio_center:
+	Inherits@1: ^QuickConstruction
+ed_buildings_tech_house:
+	Inherits@1: ^QuickConstruction
+ed_defenses_heavy_defense_tower:
+	Inherits@1: ^QuickConstruction
+shared_buildings_power_plant:
+	Inherits@1: ^QuickConstruction
+shared_buildings_research_center:
+	Inherits@1: ^QuickConstruction
+shared_buildings_water_base:
+	Inherits@1: ^QuickConstruction
+shared_buildings_water_base_dock:
+	Inherits@1: ^QuickConstruction
+shared_buildings_air_base:
+	Inherits@1: ^QuickConstruction
+shared_buildings_refinery:
+	Inherits@1: ^QuickConstruction
+shared_buildings_mine:
+	Inherits@1: ^QuickConstruction
+
+ed_ships_kt30:
+	Buildable:
+		BuildDuration: 40
+
+ed_ships_wtrn:
+	Buildable:
+		BuildDuration: 40
+
+ed_ships_shark:
+	Buildable:
+		BuildDuration: 40
+
+ucs_vehicles_goliath:
+	Health:
+		#HP: 150
+		HP: 400
+
+
+# Colors: green (ED default), red (UCS default), light gray, orange, dark gray, purple
+#PresetColors: 273C0A, F20F0F, 4A4D4A, 7B4100, 393439, 29345A
