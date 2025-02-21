@@ -1,0 +1,22 @@
+ucs_elevator:
+	#Defaults:
+		#Filename: elevator_ucs.vspr
+	#opening:
+		#Start: 1
+		#Length: 2
+		#Tick: 100
+	#open:
+		#Start: 3
+		#ZOffset: -512
+	overlay:
+		#Start: 4
+		ZOffset: 256
+	#elevator:
+		#Offset: -3, -1
+		#Start: 7
+		#ZOffset: -512
+	#closed:
+	#closing:
+		#Start: 5
+		#Length: 2
+		#Tick: 100

@@ -1,0 +1,130 @@
+Player:
+	PlayerResources:
+		DefaultCash: 99999
+	-ConquestVictoryConditions:
+
+World:
+	LuaScript:
+		Scripts: script.lua
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	#ResearchLimit:
+	#	Limit: 4
+	# Decrease amount of resources in one cell (to speed up ore field depletion process).
+	#ResourceLayer:
+		#ResourceTypes:
+			#Resources:
+				#MaxDensity: 1000
+
+^StrongInfantry:
+	Health:
+		HP: 120
+
+
+ucs_infantry_silver_one:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_r:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_max:
+	Inherits@99: ^StrongInfantry
+
+ed_infantry_a03:
+	Inherits@99: ^StrongInfantry
+
+^QuickConstruction:
+	TransformSequence:
+		ConstructionTime: 50
+
+ucs_buildings_prod_center:
+	Inherits@1: ^QuickConstruction
+
+	# There's ZOffset issue with Bantha coming up the elevator due to adjustments made for Mine's and Refinery's conveyor belt
+	# Adjust ElevatorProduction's cutoff
+
+	# Temporarily force just one exit from Production Center
+	-Exit@Exit2:
+	-Exit@Exit3:
+	-Exit@Exit4:
+	-Exit@Exit5:
+	-Exit@Exit6:
+
+ucs_buildings_heavy_tech:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_robot_factory:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_pb_control:
+	Inherits@1: ^QuickConstruction
+ucs_defenses_pb_cannon:
+	Inherits@1: ^QuickConstruction
+
+ed_buildings_bio_center:
+	Inherits@1: ^QuickConstruction
+ed_buildings_tech_house:
+	Inherits@1: ^QuickConstruction
+ed_defenses_heavy_defense_tower:
+	Inherits@1: ^QuickConstruction
+shared_buildings_power_plant:
+	Inherits@1: ^QuickConstruction
+shared_buildings_research_center:
+	Inherits@1: ^QuickConstruction
+shared_buildings_water_base:
+	Inherits@1: ^QuickConstruction
+shared_buildings_water_base_dock:
+	Inherits@1: ^QuickConstruction
+shared_buildings_air_base:
+	Inherits@1: ^QuickConstruction
+shared_buildings_refinery:
+	Inherits@1: ^QuickConstruction
+shared_buildings_mine:
+	Inherits@1: ^QuickConstruction
+
+# Temporarily disable new features for the first resources segment
+shared_buildings_refinery:
+	# Disable extra docking ports for Bantha
+#	-ConveyorBeltDock@PortNorth:
+#	-ConveyorBeltDock@PortEast:
+
+	# Allow only single docking angle for Heavy Lifter
+#	AircraftConveyorBeltDock@HeavyLifter:
+#		AllowedDockAngles: 512
+
+	# Adjust garage construction time to line it up with the main pyramid animation
+	TransformSequence@Addon:
+		ConstructionTime: 43
+
+
+# Temporarily disable new features for the first resources segment
+shared_buildings_mine:
+	# Disable extra docking ports for Bantha
+#	-ConveyorBeltDock@PortNorth:
+#	-ConveyorBeltDock@PortEast:
+
+	ResourceMine:
+		# Shuffle mined cells (for presentation purposes)
+		ShuffleMinableCells: true
+
+		# Speed up the mining process
+		Force: 10
+
+#	# Allow only single docking angle for Heavy Lifter
+#	AircraftConveyorBeltDock@HeavyLifter:
+#		AllowedDockAngles: 512
+
+# Temporarily disable new features for the first resources segment
+shared_aircrafts_heavy_lifter:
+	CrateTransporterRoutine:
+#		# Don't assign automatically target Refinery or Mine (classic behavior from E2140)
+#		AssignTargetsAutomatically: false
+
+# Temporarily disable new features for the first resources segment
+shared_vehicles_bantha:
+	CrateTransporterRoutine:
+#		# Don't assign automatically target Refinery or Mine (classic behavior from E2140)
+#		AssignTargetsAutomatically: false
+
+
+
+# Colors: green (ED default), red (UCS default), light gray, orange, dark gray, purple
+#PresetColors: 273C0A, F20F0F, 4A4D4A, 7B4100, 393439, 29345A
