@@ -1,0 +1,49 @@
+Player:
+	PlayerResources:
+		DefaultCash: 99999
+	-ConquestVictoryConditions:
+
+World:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+
+^StrongInfantry:
+	Health:
+		HP: 120
+
+
+ucs_infantry_silver_one:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_r:
+	Inherits@99: ^StrongInfantry
+
+ucs_infantry_silver_max:
+	Inherits@99: ^StrongInfantry
+
+ed_infantry_a03:
+	Inherits@99: ^StrongInfantry
+
+^QuickConstruction:
+	TransformSequence:
+		ConstructionTime: 40
+
+ucs_buildings_prod_center:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_heavy_tech:
+	Inherits@1: ^QuickConstruction
+ucs_buildings_robot_factory:
+	Inherits@1: ^QuickConstruction
+shared_buildings_power_plant:
+	Inherits@1: ^QuickConstruction
+shared_buildings_research_center:
+	Inherits@1: ^QuickConstruction
+
+ucs_vehicles_goliath:
+	Health:
+		#HP: 150
+		HP: 400
+
+
+# Colors: green (ED default), red (UCS default), light gray, orange, dark gray, purple
+#PresetColors: 273C0A, F20F0F, 4A4D4A, 7B4100, 393439, 29345A
