@@ -24,7 +24,7 @@ Chrome:
 Assemblies: OpenRA.Mods.OpenE2140.dll, OpenRA.Mods.Common.dll
 
 ChromeLayout:
-	content|content.yaml
+	e2140content|content.yaml
 
 Notifications:
 	content|notifications.yaml

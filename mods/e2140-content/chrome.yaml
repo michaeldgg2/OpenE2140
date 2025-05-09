@@ -3,6 +3,29 @@
 	Image2x: chrome-2x.png
 	Image3x: chrome-3x.png
 
+^bg-new:
+	Image: bg-new.png
+
+terminator:
+	Inherits: ^bg-new
+	Regions:
+		background: 0, 0, 450, 593
+
+logo:
+	Inherits: ^bg-new
+	Regions:
+		background: 450, 0, 512, 178
+
+faction-logo-ucs:
+	Inherits: ^bg-new
+	Regions:
+		background: 452, 190, 330, 288
+
+faction-logo-ed:
+	Inherits: ^bg-new
+	Regions:
+		background: 787, 191, 310, 287
+
 panel-header:
 	Inherits: ^Chrome
 	PanelRegion: 130, 512, 10, 10, 44, 44, 10, 10
