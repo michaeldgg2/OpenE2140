@@ -1,6 +1,6 @@
 Background@MODCONTENT_BACKGROUND:
 	Logic: ModContentLogic
-	Background: background
+	# Background: background
 	Width: WINDOW_WIDTH
 	Height: WINDOW_HEIGHT
 	Children:
@@ -16,14 +16,14 @@ Background@MODCONTENT_BACKGROUND:
 			Height: 178
 		Background@FACTION_LOGO_ED:
 			Background: faction-logo-ed
-			X: WINDOW_WIDTH - WIDTH
-			Y: 0
+			X: (WINDOW_WIDTH - WIDTH - 310) / 2
+			Y: WINDOW_HEIGHT - HEIGHT
 			Width: 310
 			Height: 287
 		Background@FACTION_LOGO_UCS:
 			Background: faction-logo-ucs
-			X: WINDOW_WIDTH - WIDTH
-			Y: 287
+			X: (WINDOW_WIDTH - WIDTH + 330) / 2
+			Y: WINDOW_HEIGHT - HEIGHT
 			Width: 330
 			Height: 288
 
