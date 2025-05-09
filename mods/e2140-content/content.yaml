@@ -16,16 +16,22 @@ Background@MODCONTENT_BACKGROUND:
 			Height: 178
 		Background@FACTION_LOGO_ED:
 			Background: faction-logo-ed
-			X: (WINDOW_WIDTH - WIDTH - 310) / 2
-			Y: WINDOW_HEIGHT - HEIGHT
+			X: WINDOW_WIDTH - WIDTH
+			Y: 0
 			Width: 310
 			Height: 287
 		Background@FACTION_LOGO_UCS:
 			Background: faction-logo-ucs
-			X: (WINDOW_WIDTH - WIDTH + 330) / 2
-			Y: WINDOW_HEIGHT - HEIGHT
+			X: WINDOW_WIDTH - WIDTH
+			Y: 287
 			Width: 330
 			Height: 288
+		Background@MCU_RENDER:
+			Background: bg-mcu-render
+			X: (WINDOW_WIDTH - WIDTH) / 2
+			Y: WINDOW_HEIGHT - HEIGHT
+			Width: 400
+			Height: 300
 
 Background@CONTENT_PANEL:
 	Logic: ModContentInstallerLogic

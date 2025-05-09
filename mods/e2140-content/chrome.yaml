@@ -26,6 +26,11 @@ faction-logo-ed:
 	Regions:
 		background: 787, 191, 310, 287
 
+bg-mcu-render:
+	Inherits: ^bg-new
+	Regions:
+		background: 1103, 191, 400, 300
+
 panel-header:
 	Inherits: ^Chrome
 	PanelRegion: 130, 512, 10, 10, 44, 44, 10, 10
