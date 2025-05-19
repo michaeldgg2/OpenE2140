@@ -97,6 +97,10 @@ World:
 	# Select proper production tab when production building is selected
 	ProductionQueueFromSelection:
 		ProductionTabsWidget: PRODUCTION_TABS
+	# Select the first production tab, which becomes available. Makes sure the production sidebar always show a queue if any exists.
+	AutoSelectProductionQueue:
+		ProductionTabsWidget: PRODUCTION_TABS
+		ProductionPaletteWidget: PRODUCTION_PALETTE
 	# Select research tab when research center is selected.
 	ResearchFromSelection:
 		ResearchWidget: PRODUCTION_AND_RESEARCH
@@ -148,13 +152,15 @@ World:
 				MaxDensity: 10000
 	# Add support for rush protection
 	RushProtection:
-		RushProtectionTimeDefault: 0
+		RushProtectionTimeDefault: 10
 		DamageToViolatingUnits: 20
 		TicksBetweenDamageToViolatingUnits: 10
 		RushProtectionRange: 10240
 		CountdownLabel: MISSION_TEXT
 		EnemyAttackingNotification: EnemiesApproaching
 		EnemyAttackingTextNotification: notification-rush-protection-enemy-attacking
+	# Render overlay for Rush Protection (if the feature is enabled)
+	RushProtectionOverlay:
 
 # Map editor specific world setup.
 EditorWorld:
