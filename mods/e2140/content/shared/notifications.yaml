@@ -25,8 +25,8 @@ Speech:
 		GameSaved: base|113.smp
 		GameLoaded: base|114.smp
 		RestartGame: base|115.smp
-		ResearchStarted: base|119.smp
-		ResearchComplete: base|122.smp
-		ResearchAborted: extra|cancelled.wav
+		ResearchStarted: extra|Research_started.wav
+		ResearchComplete: extra|Research_completed.wav
+		ResearchAborted: extra|Research_stopped.wav
 		ResearchAquired: base|122.smp
 		EnemiesApproaching: base|126.smp
