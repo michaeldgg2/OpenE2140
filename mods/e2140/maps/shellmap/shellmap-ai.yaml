@@ -38,6 +38,14 @@ Player:
 		RequiresCondition: enable-ucs-ai || enable-ed-ai
 		ResearchDelay: 0
 
+	EconomyManagerBotModule@AllAI:
+		RequiresCondition: enable-ucs-ai || enable-ed-ai
+		CrateTransporterTypes: shared_vehicles_bantha, shared_aircrafts_heavy_lifter
+		RefineryTypes: shared_buildings_refinery
+		MineTypes: shared_buildings_mine
+		CrateTransporterPerRefineryMinePair: 2
+		EconomyExpansionDelays:
+
 	BaseMcuBuilderBotModule@AllAI:
 		RequiresCondition: enable-ucs-ai || enable-ed-ai
 		MinimumExcessPower: 0
