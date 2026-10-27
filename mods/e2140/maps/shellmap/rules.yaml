@@ -13,6 +13,9 @@ World:
 	MusicPlaylist:
 		AllowMuteBackgroundMusic: true
 		DisableWorldSounds: true
+	# Client index of issued orders don't match the actual index of session client.
+	# Thus the order validator rejects the orders. This is just workaround to make bots work on shellmap.
+	-ValidateOrder:
 
 ^CoreConstruction:
 	DamageMultiplier@UNKILLABLE:

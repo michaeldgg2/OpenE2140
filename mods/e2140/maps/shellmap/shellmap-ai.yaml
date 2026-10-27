@@ -1,12 +1,12 @@
 Player:
 
-	ModularBot@UCS_AI:
+	ForcedModularBot@UCS_AI:
 		Name: bot-ucs.name
 		Type: bot-ucs
 	ExternalCondition@UCS_AI:
 		Condition: enable-ucs-ai
 
-	ModularBot@ED_AI:
+	ForcedModularBot@ED_AI:
 		Name: bot-ed.name
 		Type: bot-ed
 	ExternalCondition@ED_AI:
