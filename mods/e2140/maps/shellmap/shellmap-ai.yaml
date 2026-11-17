@@ -28,16 +28,6 @@ Player:
 		AwayFromAlliedTargetTypes: Structure, Defense
 		AwayFromEnemyTargetTypes: Structure, Defense
 
-	BuildingRepairBotModule:
-		RequiresCondition: enable-ucs-ai || enable-ed-ai
-
-	DeployedMcuBuildingRepairBotModule:
-		RequiresCondition: enable-ucs-ai || enable-ed-ai
-
-	ResearchBotModule@AllAI:
-		RequiresCondition: enable-ucs-ai || enable-ed-ai
-		ResearchDelay: 0
-
 	EconomyManagerBotModule@AllAI:
 		RequiresCondition: enable-ucs-ai || enable-ed-ai
 		CrateTransporterTypes: shared_vehicles_bantha, shared_aircrafts_heavy_lifter
@@ -46,61 +36,10 @@ Player:
 		CrateTransporterPerRefineryMinePair: 2
 		EconomyExpansionDelays:
 
-	BaseMcuBuilderBotModule@AllAI:
-		RequiresCondition: enable-ucs-ai || enable-ed-ai
-		MinimumExcessPower: 0
-		MaximumExcessPower: 500
-		ExcessPowerIncrement: 200
-		ExcessPowerIncreaseThreshold: 4
-		MaximumUndeployedMcu: 1
-		PowerTypes: shared_mcu_power_plant, shared_mcu_power_plant_upgraded
-		ResearchCenterTypes: shared_mcu_research_center
-		ProductionTypes: ed_mcu_bio_center, ucs_mcu_robot_factory, ucs_mcu_heavy_tech, ed_mcu_tech_house, shared_mcu_air_base, ucs_mcu_prod_center, ed_mcu_constr_center
-		BuildingQueues: Building.ED, Building.UCS
-		DefenseQueues: Defense.ED, Defense.UCS
-		McuFractions:
-			ucs_mcu_prod_center: 1
-			ucs_mcu_pb_control: 1
-			ucs_mcu_robot_factory: 1
-			ucs_mcu_heavy_tech: 1
-			ed_mcu_bio_center: 1
-			ed_mcu_constr_center: 1
-			ed_mcu_tech_house: 1
-			ed_mcu_bcc: 1
-			shared_mcu_air_base: 1
-			shared_mcu_research_center: 1
-			ucs_mcu_pb_cannon: 1
-			ed_mcu_defense_tower: 1
-			ed_mcu_defense_tower_upgraded: 6
-			ed_mcu_heavy_defense_tower: 6
-			ed_mcu_heavy_defense_tower_upgraded: 3
-			ed_mcu_pillbox: 3
-			ed_mcu_silo: 1
-			ed_mcu_an_center: 4
-			ucs_mcu_little_eye: 1
-			ucs_mcu_little_eye_upgraded: 6
-			ucs_mcu_big_eye: 6
-			ucs_mcu_big_eye_upgraded: 2
-		McuLimits:
-			ed_mcu_constr_center: 2
-			ed_mcu_bio_center: 2
-			ed_mcu_tech_house: 2
-			ed_mcu_silo: 2
-			ucs_mcu_prod_center: 2
-			ucs_mcu_robot_factory: 2
-			ucs_mcu_heavy_tech: 2
-			ucs_mcu_pb_cannon: 2
-			ucs_mcu_sdi_defense: 1
-			shared_mcu_air_base: 2
-			shared_mcu_research_center: 1
-		McuDelays:
-			ed_mcu_bcc: 12000
-			ucs_mcu_pb_control: 12000
-
 	SquadManagerBotModule@AllAI:
 		RequiresCondition: enable-ucs-ai || enable-ed-ai
 		SquadSize: 8
-		SquadSizeRandomBonus: 40
+		SquadSizeRandomBonus: 2
 		ExcludeFromSquadsTypes: ucs_mcu_prod_center, ucs_mcu_pb_control, ucs_mcu_robot_factory, ucs_mcu_teleport, ucs_mcu_heavy_tech, ed_mcu_bcc, ed_mcu_bio_center, ed_mcu_constr_center, ed_mcu_tech_house, shared_mcu_air_base, shared_mcu_mine, shared_mcu_power_plant, shared_mcu_power_plant_upgraded, shared_mcu_refinery, shared_mcu_research_center, shared_mcu_water_base, ucs_mcu_pb_cannon, ed_mcu_silo, ucs_mcu_sdi_defense, ed_mcu_an_center, ed_mcu_defense_tower, ed_mcu_defense_tower_upgraded, ed_mcu_heavy_defense_tower, ed_mcu_heavy_defense_tower_upgraded, ed_mcu_pillbox, ucs_mcu_big_eye, ucs_mcu_big_eye_upgraded, ucs_mcu_little_eye, ucs_mcu_little_eye_upgraded, shared_vehicles_bantha, shared_aircrafts_heavy_lifter, ucs_vehicles_miner_bt, ed_vehicles_miner, ucs_vehicles_goliath, ucs_infantry_silver_t, ucs_ships_ttre400
 		ConstructionYardTypes: shared_buildings_power_plant, ed_buildings_constr_center, ucs_buildings_prod_center
 		AirUnitsTypes: ed_aircrafts_thunder, ed_aircrafts_storm, ed_aircrafts_vtol, ed_aircrafts_nemezis, ucs_aircrafts_gargoil, ucs_aircrafts_gargoil_ii, ucs_aircrafts_hellwind
@@ -162,8 +101,8 @@ Player:
 			ed_aircrafts_thunder: 3
 			ed_aircrafts_vtol: 3
 			ed_aircrafts_nemezis: 2
-			ed_ships_shark: 10
-			ed_ships_kt30: 20
+			ed_ships_shark: 6
+			ed_ships_kt30: 4
 			ucs_infantry_silver_t: 10
 			ucs_vehicles_miner_bt: 4
 			ucs_vehicles_goliath: 8
@@ -172,9 +111,9 @@ Player:
 			ucs_aircrafts_gargoil: 3
 			ucs_aircrafts_gargoil_ii: 3
 			ucs_aircrafts_hellwind: 2
-			ucs_ships_russ3: 10
-			ucs_ships_orca: 20
-			ucs_ships_ttre400: 4
+			ucs_ships_russ3: 6
+			ucs_ships_orca: 4
+			ucs_ships_ttre400: 2
 
 ^AICashCheat:
 	GrantConditionOnBotOwner:
