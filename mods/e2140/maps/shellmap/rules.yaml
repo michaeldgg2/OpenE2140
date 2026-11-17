@@ -22,6 +22,7 @@ World:
 		Modifier: 0
 
 shared_buildings_wall:
+	-Targetable:
 	DamageMultiplier@UNKILLABLE:
 		Modifier: 0
 
