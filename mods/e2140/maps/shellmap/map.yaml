@@ -32,12 +32,16 @@ Players:
 		Faction: ed
 		Color: 345100
 		Enemies: UCS, Creeps
+		ResearchStartLevel: 4
+		StartingCash: 1000000
 	PlayerReference@UCS:
 		Name: UCS
 		Bot: bot-ucs
 		Faction: ucs
 		Color: F20F0F
 		Enemies: ED, Creeps
+		ResearchStartLevel: 4
+		StartingCash: 1000000
 
 Actors:
 	Actor0: neutral_tree01
